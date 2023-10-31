@@ -27,6 +27,17 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	// DB 관련 의존성
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc:3.1.5'
+	implementation 'com.mysql:mysql-connector-j:8.0.33'
+	// # MyBatis
+	// java(ver.17) => 3.x.x
+	// java(ver.11 이하) => 2.x.x
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2'
+
+
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
