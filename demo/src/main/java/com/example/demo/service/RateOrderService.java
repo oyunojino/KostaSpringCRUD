@@ -2,7 +2,7 @@ package com.example.demo.service;
 
 import org.springframework.stereotype.Service;
 
-//@Service
+@Service
 public class RateOrderService implements OrderService {
   private final int DISCOUNT_RATE = 10;
 

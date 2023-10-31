@@ -10,19 +10,14 @@ import java.util.List;
 
 @Service
 public class PostService {
-  //  public String getAllPost() {
-//    return "게시글 전체 가져오기 service가 호출되었습니다.";
-//  }
   @Autowired
   private PostRepository postRepository;
-
-  public List<Post> getAllPost() {
+  public List<Post> getAllPosts() {
     return postRepository.selectAllPosts();
   }
 
   public Post setPost(Post post) {
     postRepository.insertPost(post);
-//    postRepository.selectPostById();
     return post;
   }
 
@@ -33,8 +28,11 @@ public class PostService {
     return orgPost;
   }
 
-  public void deletePost(int postId) {
-        postRepository.deletePost(postId);
-    }
+  public Post getPostById(int postId){
+    return postRepository.selectPostById(postId);
   }
 
+  public void removePost(int postId){
+    postRepository.deletePost(postId);
+  }
+}

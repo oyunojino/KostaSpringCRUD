@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.apicontroller;
 
 import com.example.demo.model.Student;
 import com.example.demo.model.StudentDto;
@@ -19,32 +19,31 @@ public class StudentController {
   }
 
   @GetMapping
-  public List<Student> getAllStudent() {
+  public List<Student> getAllStudent(){
     return studentService.getAllStudent();
   }
 
   @GetMapping("/{studentId}")
-  public Student getStudentInfo(@PathVariable("studentId") int studentId) {
+  public Student getStudentInfo(@PathVariable int studentId) {
     return studentService.getStudentInfo(studentId);
   }
 
   @DeleteMapping("/{studentId}")
-  public String removeStudent(@PathVariable("studentId") int studentId) {
+  public String removeStudent(@PathVariable int studentId){
     String res = studentService.removeStudent(studentId);
     return res;
   }
 
   @PostMapping
-  public String addStudent(@RequestBody Student student) {
+  public String addStudent(@RequestBody Student student){
     String res = studentService.addStudent(student);
     return res;
   }
 
   @PutMapping("/{studentId}")
-  public String updateStudent(@PathVariable("studentId") int studentId,
-                              StudentDto studentDto) {
+  public String updateStudent(@PathVariable int studentId,
+                              @RequestBody StudentDto studentDto){
     String res = studentService.updateStudent(studentId, studentDto);
     return res;
   }
-
 }

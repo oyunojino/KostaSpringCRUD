@@ -41,14 +41,16 @@ public class ViewController {
     return "obj";
   }
 
+//  localhost:8080/view/param?param1=4&param2=5
   @GetMapping("/param")
-  public String method4(@RequestParam Integer param1,
+    public String method4(@RequestParam Integer param1,
                         @RequestParam Integer param2,
                         Model model){
     model.addAttribute("result", param1 + param2);
     return "param";
   }
 
+//  localhost:8080/view/param/4/5
   @GetMapping("/param/{param1}/{param2}")
   public String method5(@PathVariable Integer param1,
                         @PathVariable Integer param2,
@@ -57,6 +59,7 @@ public class ViewController {
     return "param";
   }
 
+//  localhost:8080/view/param/5?param2=4
   @GetMapping("/param/{param1}")
   public String method6(@PathVariable Integer param1,
                         @RequestParam Integer param2,
