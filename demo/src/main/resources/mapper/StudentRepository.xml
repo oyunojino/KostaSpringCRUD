@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.repository.StudentRepository">
+    <select id="findAllStudent" resultType="com.example.demo.domain.Student">
+        SELECT id, name, univ, Date_format(birth, '%y-%m-%d') as birthdate, email, point
+        FROM jwbook.student
+    </select>
+    <select id="findById" resultType="com.example.demo.domain.Student">
+        SELECT id, name, univ, Date_format(birth, '%y-%m-%d') as birthdate, email, point
+        FROM jwbook.student
+        WHERE id = #{id}
+    </select>
+    <insert id="addStudent" parameterType="Student" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO jwbook.student(name, univ, birth, email, point)
+        VALUES ("김연아", "고려대", "2000-01-01", "K@aaa.com", 3.5)
+    </insert>
+    <update id="updateStudent" parameterType="Student">
+        UPDATE student
+        SET point = #{point}
+        WHERE id = #{id}
+    </update>
+</mapper>
