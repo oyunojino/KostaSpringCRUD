@@ -15,6 +15,7 @@ class MemoryProductRespositoryTest {
 
   @BeforeEach
   void setUp() {
+
   }
 
   @Test
@@ -39,7 +40,7 @@ class MemoryProductRespositoryTest {
         .qty(1200)
         .build();
     Product insertProduct = productRepository.insert(product);
-    Assertions.assertThat(insertProduct).isEqualTo(null);
+    Assertions.assertThat(insertProduct).isEqualTo(product);
     //Assertions.assertThat(insertProduct.getProductId()).isEqualTo(2);
   }
 

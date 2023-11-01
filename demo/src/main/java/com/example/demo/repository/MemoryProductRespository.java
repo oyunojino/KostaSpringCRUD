@@ -46,7 +46,8 @@ public class MemoryProductRespository implements ProductRepository{
   @Override
   public Product insert(Product product) {
     product.setProductId(++seq);
-    Product put = productMap.put(seq, product);
+    productMap.put(seq, product);
+    Product put = productMap.get(seq);
     return put;
   }
 

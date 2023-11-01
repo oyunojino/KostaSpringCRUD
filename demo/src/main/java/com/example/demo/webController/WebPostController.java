@@ -12,18 +12,19 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/posts")
+
 public class WebPostController {
   private final PostService postService;
 
-  @Autowired
+
   public WebPostController(PostService postService) {
     this.postService = postService;
   }
 
   @GetMapping
   public String getAllPosts(Model model){
-    List<Post> allPosts = postService.getAllPosts();
-    model.addAttribute("posts", allPosts);
+      List<Post> allPosts = postService.getAllPosts();
+      model.addAttribute("posts", allPosts);
     return "post/postList";
   }
 
@@ -57,7 +58,7 @@ public class WebPostController {
   @PostMapping("/updatePost/{postId}")
   public String updatePost(@PathVariable int postId,
                            @ModelAttribute PostDto postDto){
-    Post post = postService.getPostById(postId);
+    Post post = postService.updatePost(postId, postDto);
     post.setLikes(postDto.getLikes());
     return "redirect:/posts";
   }
